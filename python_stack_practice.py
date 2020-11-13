@@ -18,20 +18,20 @@ class Stack:
         else:
             return self.items.pop()
         
+if __name__ == "__main__":
+    MyStack = Stack()
 
-MyStack = Stack()
+    MyStack.push("Web Page 1")
+    MyStack.push("Web Page 2")
+    MyStack.push("Web Page 3")
 
-MyStack.push("Web Page 1")
-MyStack.push("Web Page 2")
-MyStack.push("Web Page 3")
+    print (MyStack.items)
 
-print (MyStack.items)
+    MyStack.pop()
+    MyStack.pop()
 
-MyStack.pop()
-MyStack.pop()
+    print ("Pass" if (MyStack.items[0] == 'Web Page 1') else "Fail")
 
-print ("Pass" if (MyStack.items[0] == 'Web Page 1') else "Fail")
+    MyStack.pop()
 
-MyStack.pop()
-
-print ("Pass" if (MyStack.pop() == None) else "Fail")
+    print ("Pass" if (MyStack.pop() == None) else "Fail")
