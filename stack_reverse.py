@@ -9,14 +9,17 @@ def reverse_stack(stack):
     Returns:
        stack: Reversed Stack
     """
-    
-    if stack.is_empty():
-        return None
-
     new_stack = Stack()
-    while stack.size() > 0:
+    while not stack.is_empty():
         new_stack.push(stack.pop())
-    return new_stack
+    _reverse_stack_recursion(stack, new_stack)
+
+def _reverse_stack_recursion(stack, holder_stack):
+    if holder_stack.is_empty():
+        return
+    popped_element = holder_stack.pop()
+    _reverse_stack_recursion(stack, holder_stack)
+    stack.push(popped_element)
       
 def test_function(test_case):
     stack = Stack()
