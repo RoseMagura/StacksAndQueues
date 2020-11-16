@@ -18,19 +18,20 @@ class Stack:
 
 class Queue:
     def __init__(self):
-        Stack.__init__(self)
+        self.instorage=Stack()
+        self.outstorage=Stack()
         
     def size(self):
-        return Stack.size(self)
+        return self.instorage.size() + self.outstorage.size()
         
     def enqueue(self,item):
-        Stack.push(self, item)
+        self.instorage.push(item)
         
     def dequeue(self):
-        value = self.items[0]
-        self.items = self.items[1:]
-        return value
-
+        if not self.outstorage.items:
+            while self.instorage.items:
+                self.outstorage.push(self.instorage.pop())
+        return self.outstorage.pop()
         
 
 # Setup
